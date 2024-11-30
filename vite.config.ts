@@ -8,15 +8,11 @@ import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 import mockDevServerPlugin from "vite-plugin-mock-dev-server";
 
+import { UndrawUiResolver } from "undraw-ui/es/resolvers";
+
 import UnoCSS from "unocss/vite";
 import { resolve } from "path";
-import {
-  name,
-  version,
-  engines,
-  dependencies,
-  devDependencies,
-} from "./package.json";
+import { name, version, engines, dependencies, devDependencies } from "./package.json";
 
 // 平台的名称、版本、运行所需的 node 版本、依赖、构建时间的类型提示
 const __APP_INFO__ = {
@@ -56,8 +52,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
           changeOrigin: true,
           // 代理目标地址：https://api.youlai.tech
           target: env.VITE_APP_API_URL,
-          rewrite: (path) =>
-            path.replace(new RegExp("^" + env.VITE_APP_BASE_API), ""),
+          rewrite: (path) => path.replace(new RegExp("^" + env.VITE_APP_BASE_API), ""),
         },
       },
     },
@@ -89,6 +84,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
         resolvers: [
           // 导入 Element Plus 组件
           ElementPlusResolver(),
+          UndrawUiResolver,
         ],
         // 指定自定义组件位置(默认:src/components)
         dirs: ["src/components", "src/**/components"],
@@ -216,9 +212,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
             const info = assetInfo.name.split(".");
             let extType = info[info.length - 1];
             // console.log('文件信息', assetInfo.name)
-            if (
-              /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/i.test(assetInfo.name)
-            ) {
+            if (/\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/i.test(assetInfo.name)) {
               extType = "media";
             } else if (/\.(png|jpe?g|gif|svg)(\?.*)?$/.test(assetInfo.name)) {
               extType = "img";

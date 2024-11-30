@@ -62,6 +62,9 @@ dependencies:
   sortablejs:
     specifier: ^1.15.3
     version: 1.15.3
+  undraw-ui:
+    specifier: 1.2.1
+    version: 1.2.1(typescript@5.5.4)
   vue:
     specifier: ^3.5.12
     version: 3.5.12(typescript@5.5.4)
@@ -1553,6 +1556,12 @@ packages:
     dependencies:
       '@types/estree': 1.0.6
     dev: true
+
+  /@types/trusted-types@2.0.7:
+    resolution: {integrity: sha512-ScaPdn1dQczgbl0QFTeTOmVHFULt394XJgOQNoyVhZ6r2vLnMLJfBPd53SB52T/3G36VI1/g2MZaX0cwDuXsfw==}
+    requiresBuild: true
+    dev: false
+    optional: true
 
   /@types/web-bluetooth@0.0.16:
     resolution: {integrity: sha512-oh8q2Zc32S6gd/j50GowEjKLoOVOwHP/bWVjKJInBwQqdOYMdPrf1oVlelTlyfFK3CKxL1uahMDAr+vy8T7yMQ==}
@@ -3457,6 +3466,12 @@ packages:
     dependencies:
       domelementtype: 2.3.0
     dev: true
+
+  /dompurify@3.2.1:
+    resolution: {integrity: sha512-NBHEsc0/kzRYQd+AY6HR6B/IgsqzBABrqJbpCDQII/OK6h7B7LXzweZTDsqSW2LkTRpoxf18YUP+YjGySk6B3w==}
+    optionalDependencies:
+      '@types/trusted-types': 2.0.7
+    dev: false
 
   /domutils@1.7.0:
     resolution: {integrity: sha512-Lgd2XcJ/NjEw+7tFvfKxOzCYKZsdct5lczQ2ZaQY8Djz7pfAD3Gbp8ySJWtreII/vDlMVmxwa6pHmdxIYgttDg==}
@@ -7371,6 +7386,17 @@ packages:
     resolution: {integrity: sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==}
     dev: true
 
+  /undraw-ui@1.2.1(typescript@5.5.4):
+    resolution: {integrity: sha512-b8FiUEy8EUAzSroPx6qIuDUJiiAym2lT+xkHgiDjEkHNDAnas17f3vvdlsAtdi7iWWxdC9bGVFXjtEj1tmuqAw==}
+    dependencies:
+      element-plus: 2.8.7(vue@3.5.12)
+      vue: 3.5.12(typescript@5.5.4)
+      vue-dompurify-html: 5.1.0(vue@3.5.12)
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - typescript
+    dev: false
+
   /unicorn-magic@0.1.0:
     resolution: {integrity: sha512-lRfVq8fE8gz6QMBuDM6a+LO3IAzTi05H6gCVaUpir2E1Rwpo4ZUog45KpNXKC/Mn3Yb9UDuHumeFTo9iV/D9FQ==}
     engines: {node: '>=18'}
@@ -7697,6 +7723,15 @@ packages:
         optional: true
     dependencies:
       vue: 3.5.12(typescript@5.5.4)
+
+  /vue-dompurify-html@5.1.0(vue@3.5.12):
+    resolution: {integrity: sha512-616o2/PBdOLM2bwlRWLdzeEC9NerLkwiudqNgaIJ5vBQWXec+u7Kuzh+45DtQQrids67s4pHnTnJZLVfyPMxbA==}
+    peerDependencies:
+      vue: ^3.0.0
+    dependencies:
+      dompurify: 3.2.1
+      vue: 3.5.12(typescript@5.5.4)
+    dev: false
 
   /vue-eslint-parser@9.4.3(eslint@9.14.0):
     resolution: {integrity: sha512-2rYRLWlIpaiN8xbPiDyXZXRgLGOtWxERV7ND5fFAv5qo1D2N9Fu9MNajBNc6o13lZ+24DAWCkQCvj4klgmcITg==}
